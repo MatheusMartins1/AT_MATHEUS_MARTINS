@@ -1,0 +1,37 @@
+{% extends "base.html" %}
+{% load static %}
+{% block content %}
+
+    <div class="row info_pc dashboard-cards">
+        <div class="card col-sm-4 IP">
+            <div class="card-body">
+                <h5 class="card-title">IP</h5>
+                <p class="card-text">{{ IP }}</p>
+            </div>
+        </div>
+        <div class="card col-sm-4 processador" id="processador">
+            <div class="card-body">
+                <h5 class="card-title">Processador</h5>
+                <p class="card-text">{{ CPU.Processador }}</p>
+            </div>
+            <div class='card-flap flap1'>
+                <div class='card-description'>
+                    <ul class='task-list'>
+                        {% for key,value in CPU.items %}
+                            <li class="{{ key }}">
+                                {{ key }} - {{ value }}
+                            </li>
+                        {% endfor %}
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <div class="card col-sm-4 IP">
+            <div class="card-body">
+                <h5 class="card-title">Memória</h5>
+                <p class="card-text">Em uso: {{ memoria.0 }}% | Total: {{ memoria.1 }}</p>
+            </div>
+        </div>
+    </div>
+
+{% endblock %}

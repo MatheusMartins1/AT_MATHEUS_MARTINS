@@ -1,0 +1,49 @@
+{% extends "base.html" %}
+{% load static %}
+{% block content %}
+
+<div class="row processos">
+    <h1>Lista de processos ativos:</h1>
+</div>
+
+<div class="row">
+    {% if processos %}
+    <table class="table table-striped table-hover">
+        <thead>
+            <tr>
+                <th scope="col">Ranking</th>
+                <th scope="col">PID</th>
+                <th scope="col">Nome</th>
+                <th scope="col">Status</th>
+                <th scope="col">Início</th>
+                <th scope="col">Tempo de execução</th>
+                <th scope="col">Tempo de usuário</th>
+                <th scope="col">Tempo de sistema</th>
+                <th scope="col">Memória %</th>
+                <th scope="col">Threads total</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for id, processo in processos.items %}
+            <tr>
+                <th scope="row">{{ id }}</th>
+                <td>{{ processo.pid }}</td>
+                <td>{{ processo.nome }}</td>
+                <td>{{ processo.status }}</td>
+                <td>{{ processo.dt_inicio }}</td>
+                <td>{{ processo.tempo_exec }}</td>
+                <td>{{ processo.tempo_user }}</td>
+                <td>{{ processo.tempo_system }}</td>
+                <td>{{ processo.memoria }} ({{ processo.memoria_uso }}%)</td>
+                <td>{{ processo.threads }}</td>
+            </tr>
+            {% endfor %}
+        </tbody>
+
+        {% else %}
+        <p>Não foi possível localizar processos ativos.</p>
+        {% endif %}
+    </table>
+</div>
+
+{% endblock %}

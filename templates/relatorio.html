@@ -1,0 +1,416 @@
+{% extends "base.html" %}
+{% load static %}
+{% block content %}
+
+<h1 id="at_pb_matheus_martins">Projeto Final - Matheus Martins</h1>
+<div class="container" id="relatorio">
+    <section>
+        <h3 id="intro">Relatório do projeto</h3>
+        <p class="resp">Autor: Matheus Martins da Silva <br>
+            Localização do projeto no GitHub:
+            <a href="https://github.com/MatheusMartins1/AT_MATHEUS_MARTINS">
+                https://github.com/MatheusMartins1/AT_MATHEUS_MARTINS</a>
+        </p>
+        <p class="resp">Projeto referente a disciplina de projeto de bloco em arquitetura de computadores, sistemas
+            operacionais e
+            redes
+            da
+            graduação em Sistemas de Informação apresentado ao Instituto INFNET como requisito para a obtenção de grau
+            na
+            Atividade proposta.</p>
+        <h4 id="desc_projeto">Descrição do projeto</h4>
+        <p class="resp">O entregável do seu projeto de bloco será: Um software cliente-servidor em Python que explore
+            conceitos de
+            arquitetura de redes, arquitetura de computadores e/ou de sistemas operacionais, acompanhado de relatório
+            explicativo.</p>
+        <h4 id="entregavel">Entregável</h4>
+        <p class="resp">
+            Um aplicativo simples de apresentação gráfica do monitoramento e análise do computador. Ele deverá ser
+            implementado
+            em Python usando módulos como 'psutil', 'cpuinfo', 'os' e 'subprocess' (para
+            capturar dados do sistema computacional, informações dos diretórios e processos) e 'pygame' (para exibir
+            graficamente os dados).
+        </p>
+
+        <h4 id="mudancas">Mudanças acordadas</h4>
+        <p class="resp">
+            Apesar do entregável oficial do projeto solicitar a exibição gráfica através do pygame, foi acordado com o
+            professor de bloco a exibição gráfica do projeto utilizando Django.<br>
+            Até o TP5 o projeto foi construído progressivamente utilizando o pygame como estrutura gráfica padrão, a
+            partir do TP6 o projeto foi drasticamente alterado para implantar a aplicação em Django
+        </p>
+    </section>
+
+    <section class="TP">
+        <h3 class="tituloTP" id="tp2">TESTE DE PERFORMANCE - TP2</h3>
+        <p>Escreva um programa em Python que exiba graficamente através do uso do módulo Pygame:</p>
+        <ol>
+            <li>Uma barra de indicação da porcentagem do uso de memória;</li>
+            <li>Uma barra de indicação da porcentagem do uso de CPU, junto com a informação detalhada da plataforma
+                de
+                processamento;</li>
+            <li>Uma barra de indicação da porcentagem do uso de disco;</li>
+            <li>Um texto com a informação do IP da máquina.</li>
+        </ol>
+
+        <p><img src="{% static 'images/TP2.jpg' %}" alt="alt text"></p>
+    </section>
+
+    <section class="TP">
+        <h3 class="tituloTP" id="tp3">TESTE DE PERFORMANCE - TP3</h3>
+        <p>Adicione ao seu programa feito no TP2 informações mais detalhadas de uso de CPU. Você pode adicionar as
+            informações da maneira que achar mais interessante. No entanto, algumas são obrigatórias: Mantenha as
+            barras
+            de uso de memória e disco (e suas superfícies). Elas serão alteradas, da mesma forma que a CPU, em TPs
+            posteriores.</p>
+        <ol>
+            <li>Alterar o programa feito no TP2 de modo a possuir 5 visualizações diferentes:
+                <ul>
+                    <li>1.1. Uma para colocar todas as
+                        informações associadas ao processador
+                    </li>
+                    <li>1.2. Uma para colocar todas as informações associadas à memória
+                    </li>
+                    <li>1.3.
+                        Uma para colocar todas as informações associadas ao Disco
+                    </li>
+                    <li>1.4. Uma para colocar todas as informações
+                        associadas ao IP
+                    </li>
+                    <li>1.5. Todas as anteriores devem ser alteradas caso o usuário clique nas setas esquerda ou
+                        direita do teclado. Seguindo sempre uma ordem predefinida, como em um carrossel.
+                    </li>
+                    <li>1.6. Uma última que teria um
+                        resumo de todas elas. O qual seria acessado quando o usuário clica na tecla “Barra” do
+                        teclado.
+                    </li>
+                </ul>
+            </li>
+            <li>Alterar a barra de CPU do TP2 para ter barras de CPU associadas a cada núcleo (core);</li>
+            <li>Adicionar informação de nome/modelo da CPU (brand);</li>
+            <li>Adicionar informação do tipo da arquitetura (arch);</li>
+            <li>Adicionar informação da palavra do processador (bits);</li>
+            <li>Adicionar informação sobre a frequência total e frequência de uso da CPU;</li>
+            <li>Adicionar informação do número total de núcleos (núcleo físico) e threads (núcleo lógico).</li>
+        </ol>
+
+        <p><img src="{% static 'images/TP3.jpg' %}" alt="alt text"></p>
+    </section>
+
+    <section class="TP">
+        <h3 class="tituloTP" id="tp4">TESTE DE PERFORMANCE - TP4</h3>
+        <p>Este TP4 corresponde à continuação do TP3. Agora, você irá introduzir no seu programa informações sobre
+            arquivos e diretórios especificados e sobre processos em execução no computador. A partir de então, você
+            terá mais liberdade para criar a forma de visualização das informações da maneira que desejar e de
+            acordo
+            com seu orientador. Certifique-se apenas que está realizando o básico do que este TP requisita.</p>
+        <ol>
+            <li>Criar uma ou mais funções que retornem ou apresentem informações sobre diretórios e arquivos. Tais
+                informações podem ser qualquer uma que você achar relevante disponível no módulo 'os' e 'psutil' de
+                Python, como nome, tamanho, localização, data de criação, data de modificação, tipo, etc.
+            </li>
+            <li>Usar a função em seu programa para mostrar o resultado. O resultado pode ser em texto formatado
+                impresso
+                na tela ou gráfico, usando o módulo 'pygame'. Note que o uso do 'pygame' é opcional.
+            </li>
+        </ol>
+
+        <p><img src="{% static 'images/TP4_ARQUIVOS.jpg' %}" alt="alt text"></p>
+        <ol>
+            <li>Criar uma ou mais funções que retornem ou apresentem informações sobre processos do sistema. As
+                informações podem ser: PID, nome do executável, consumo de processamento, consumo de memória, entre
+                outras disponíveis no módulo 'psutil' de Python.
+            </li>
+            <li>Usar a função em seu programa para mostrar o resultado. O resultado pode ser em texto formatado
+                impresso
+                na tela ou gráfico, usando o 'pygame'. Note que o uso do 'pygame' é opcional.
+            </li>
+        </ol>
+        <p><img src="{% static 'images/TP4_PROCESSO.jpg' %}" alt="alt text">
+             </p>
+
+    </section>
+
+    <section class="TP">
+        <h3 class="tituloTP" id="tp5">TESTE DE PERFORMANCE - TP5</h3>
+        <ol>
+            <li>Utilizar o módulo 'sched' para chamar as funções criadas no TP4 que retornam as informações sobre
+                diretórios e arquivos.
+            </li>
+            <p class="resp">
+                Nesta etapa foi adicionado um botão chamado "Clique aqui" que utiliza o módulo 'sched' para executar
+                as funções de processos em execução no computador.
+            </p>
+            <img src="{% static 'images/TP5_SCHED.jpg' %}" alt="alt text"><br>
+            <img src="{% static 'images/TP5_ESCALONAMENTO.jpg' %}" alt="alt text">
+            <li>Realizar um escalonamento das chamadas das funções com o módulo 'sched' e medir o tempo total
+                utilizado
+                por cada chamada com o módulo 'time'. Você pode escolher com quais funções do seu projeto realizar o
+                escalonamento, deixando indicado no relatório.
+            </li>
+            <p class="resp">
+                Ao clicar no botão, a tela do pygame é alterada para mostrar informações sobre os processos e
+                acontece o escalonamento:
+            </p>
+            <img src="{% static 'images/TP5_ESCALONADO.jpg' %}" alt="alt text">
+            <li>Dentro do escalonamento realizado na questão anterior, realizar uma comparação dos tempos obtidos
+                com a
+                quantidade total de clocks utilizados pela CPU para a realização dessas mesmas chamadas.
+            </li>
+            <li>Indique a diferença de tempo real e tempo do clock do computador.</li>
+            <li>Indique o que acontece com essa diferença quando insere um tempo de espera, como por exemplo
+                utilizando
+                o 'time.sleep' dentro de alguma chamada.
+            </li>
+        </ol>
+        <p><img src="{% static 'images/TP5_TEMPO_EXECUCAO.jpg' %}" alt="alt text"></p>
+    </section>
+
+    <article id="dango_art">
+        <h2 id="implantacao_django">Implantação do Django</h2>
+        <p class="resp">
+            A apartir deste momento o Pygame foi descontinuado e o Django foi implementado.
+        </p>
+        <p class="resp">
+            Até o momento todas as funções do projeto constavam dentro da main com o pygame. Considerando as
+            boas práticas de programação, as funções da aplicação foram separadas em diferentes arquivos a serem
+            importados como módulos durante a execução necessária. Além disso foram criados dois arquivos,
+            "CONSTANTES.py" e "funcoes.py" que possuem variáveis e funções centralizadas que são usadas nos
+            demais módulos.
+        </p>
+        <p class="resp">
+            Afim de evitar retrabalhos e deixar o desenvolvimento mais fluído, a ordem de construção do roteiro
+            padrão foi alterado. Antes do desenvolvimento do TP6 foi desenvolvido os sockets do TP8 e integrado ao
+            servidor do Django. Todas as
+            funções do projeto também foram redesenhadas para serem usadas nas integrações HTTP do Django.
+        </p>
+        <p class="resp">
+            Na estrutura do Django, foram criados as seguintes pastas:
+        </p>
+        <ul class="modulos">
+            <li><i class="fa fa-dot-circle-o" aria-hidden="true"></i><span>AT_MATHEUS_MARTINS</span></li>
+            <p class="resp">
+                Pacote principal do Django onde estão contidos arquivos de configurações gerais do projeto, como:
+                settings, urls (que define as rotas web do projeto), asgi e wsgi.
+            </p>
+
+            <li><i class="fa fa-dot-circle-o" aria-hidden="true"></i><span>gerenciador_pc</span></li>
+            <p class="resp">
+                Pacote interno do projeto, onde estão configurações de views, pasta com arquivos estáticos a serem
+                usados no front-end e o cliente socket usado na aplicação para receber informações do servidor.
+            </p>
+            <p class="resp">
+                neste pacote também contém o arquivo views.py, que resgata as informações do socket cliente e envia
+                em
+                formato JSON para as páginas html carregarem no front-end.
+            </p>
+            <p class="resp">
+                O arquivo views.py também gerencia as rotas e requisições HTTP dentro da aplicação.
+            </p>
+
+
+            <li><i class="fa fa-dot-circle-o" aria-hidden="true"></i><span>socket_server</span></li>
+            <p class="resp">
+                Pasta com o servidor socket e com os arquivos contendo as funções de coleta de dados do computador.
+            </p>
+            <p class="resp">
+                Neste pacote contém os modulos com todas as função de coleta de dados. Elas são importadas pelo servidor
+                e gerenciados automaticamente de acordo com as requisições do cliente.
+            </p>
+
+            <li><i class="fa fa-dot-circle-o" aria-hidden="true"></i><span>templates</span></li>
+            <p class="resp">
+                Páginas html em Django que exibem as informações da aplicação.
+            </p>
+
+            <li><i class="fa fa-dot-circle-o" aria-hidden="true"></i><span>venv</span></li>
+            <p class="resp">
+                Virtual Environment do python 3.9 contendo todos os módulos externos usados na aplicação
+            </p>
+
+            <li><span>Print da estrutura do projeto:</span></li>
+            <img src="{% static 'images/estrutura_django.jpg' %}" alt="alt text">
+        </ul>
+
+    </article>
+
+    <section class="TP">
+        <h3 class="tituloTP" id="tp6">TESTE DE PERFORMANCE - TP6</h3>
+
+        <p>Este TP6 corresponde à continuação do TP5. Agora, você irá introduzir no seu programa informações sobre
+            subrede de um IP especificado e sobre as portas desse IP. A partir de então, você terá mais liberdade
+            para
+            criar a forma de visualização das informações da maneira que desejar e de acordo com seu orientador.
+            Certifique-se apenas que está realizando o básico do que este TP requisita.
+        </p>
+        <ol>
+            <li>Criar uma ou mais funções que retornem ou apresentem informações sobre as máquinas pertencentes à
+                sub-rede
+                do IP específico.
+            </li>
+            <li>Usar a função em seu programa para mostrar o resultado. O resultado pode ser em texto formatado impresso
+                na
+                tela ou gráfico, usando o módulo 'pygame'.
+            </li>
+            <li>Criar uma ou mais funções que retornem ou apresentem informações sobre as portas dos diferentes IPs
+                obtidos
+                nessa sub rede.
+            </li>
+            <li>Usar a função em seu programa para mostrar o resultado. O resultado pode ser em texto formatado impresso
+                na
+                tela ou gráfico, usando o 'pygame'.
+            </li>
+        </ol>
+
+        <ul class="modulos">
+            <li>retorna_codigo_ping()</li>
+            <p class="resp">
+                Define função que realiza um ping para determinado IP. Esta função é executada ao verificar atividade
+                dos hosts em verifica_hosts()
+            </p>
+            <li>verifica_hosts()</li>
+            <p class="resp">
+                Verifica todos os host dentro da sub_rede entre, faz um loop entre 1 e 255 retorna uma lista com todos
+                os host que tiveram resposta 0 (ativo) utilizando a função retorna_codigo_ping()
+            </p>
+            <li>scan_host()</li>
+            <p class="resp">
+                Realiza um mapeamento da rede usando nmap, resgata informações de portas abertas e dados dos
+                dispositivos conectados à estas portas. Esta função executa e preenche um dicionário previamente
+                populado pelos hosts ativos identificados na função verifica_hosts().
+            </p>
+            <li>exec_info_redes()</li>
+            <p class="resp">
+                Função responsável definir a ordem de execução e a das funções definidas anteriormente e popular o
+                dicionário que será retornado para a main da aplicação.
+            </p>
+            <li>retorna_info_hosts()</li>
+            <p class="resp">
+                Função preventiva de erro, na qual executa a exec_info_redes() se o dicionário de retorno à main esteja
+                vazio. Caso o dicionário esteja preenchido ela o retorna.
+            </p>
+        </ul>
+
+        <p class="resp">
+            Devido ao extenso tempo de carregamento necessário para realizar o mapeamento de rede pelo nmap e a
+            verificação via ping dos endereços ativos, foi necessário realizar uma modificação no servidor socket.<br>
+            Exemplo do tempo de carregamento para mapeamento completo de uma sub_rede simples:
+        </p>
+        <p>
+            <img src="{% static 'images/TP6_PORTAS_1.jpg' %}" alt="alt text">
+            <img src="{% static 'images/TP6_PORTAS_2.jpg' %}" alt="alt text">
+        </p>
+
+        <p class="resp">
+            Para contornar o tempo de carregamento, o servidor passou a ser assíncrono executando em paralelo a função
+            <b>exec_info_redes()</b> e as demais funções do servidor. A prioridade maior é da main do próprio servidor
+            (função exec_server()), a thread que retorna as informações de rede é iniciada e encerrada em paralelo.
+        </p>
+
+        <img src="{% static 'images/TP6_ASYNC.jpg' %}" alt="alt text">
+    </section>
+
+    <section class="TP">
+        <h3 class="tituloTP" id="tp7">TESTE DE PERFORMANCE - TP7</h3>
+        Este TP corresponde à sexta entrega do projeto, no qual o entregável será: Um aplicativo simples de
+        apresentação
+        textual do monitoramento e análise de computadores em rede. Ele deverá ser implementado em Python usando
+        módulos
+        como psutil (para capturar dados do sistema computacional) e sockets (para criar cliente e servidor) e será
+        desenvolvido de forma incremental durante o curso. A apresentação gráfica no lado cliente é opcional e pode
+        ser
+        parcial (parte gráfica e parte texto).
+        <ol>
+            <li>Crie uma ou mais funções que retornem ou apresentem as seguintes informações de redes: IP, gateway,
+                máscara
+                de
+                subrede.
+            </li>
+            <li>Crie uma ou mais funções que retornem ou apresentem as seguintes informações de redes: Uso de dados de
+                rede
+                por
+                interface.
+            </li>
+            <li>Crie uma ou mais funções que retornem ou apresentem as seguintes informações de redes: Uso de dados de
+                rede
+                por
+                processos.
+            </li>
+            <li>Use as funções em seu programa para mostrar o resultado.</li>
+        </ol>
+    </section>
+
+    <section class="TP"> <h3 class="tituloTP" id="tp8">TESTE DE PERFORMANCE - TP8</h3>
+        Você deve organizar todas ou uma parte das implementações realizadas nos TPs anteriores para que, ao invés
+        de
+        obter as informações da própria máquina, elas sejam obtidas na máquina servidora e o cliente apenas as
+        exiba.
+        Tanto a forma de entrada dos dados do usuário de seu programa, como a forma de visualização das informações
+        ficam a seu critério e de acordo com seu orientador. Seu programa cliente pode ter uma interface com o
+        usuário
+        para que ele selecione quais informações ele quer exibir ou pode exibir tudo de uma vez.
+
+        <ol>
+            <li>Implementar ao menos 2 tipos de obtenção de informação de um computador, conforme feito nos TPs
+                anteriores,
+                mas
+                agora no servidor. Você pode implementar todas que foram requisitadas nos TPs anteriores, mas não é
+                necessário
+                no momento. No entanto, será necessário na etapa 09.
+                <br>1.1 uso de processamento;
+                <br>1.2 uso/capacidade de
+                memória;
+                <br>1.3 sobre arquivos e diretórios;
+                <br>1.4 sobre processos executando;
+                <br>1.5 sobre redes/interfaces de
+                redes.
+            </li>
+            <li>Implemente um programa cliente que requisite tais informações ao programa servidor e exiba os dados
+                usando
+                texto
+                formatado ou de forma visual (com PyGame, por exemplo).
+            </li>
+            <li>Implemente um programa servidor que receba tais requisições do cliente, as obtenha na própria máquina e
+                as
+                envie
+                ao cliente.
+            </li>
+        </ol>
+    </section>
+
+    <section class="TP"> <h3 class="tituloTP" id="tp9">TESTE DE PERFORMANCE - TP9</h3>
+        <ol>
+            <li>Informações necessárias do TP 4:
+                <ul>
+                    <li> Capturas das informações dos diretórios, como nome, tamanho, localização, data de criação, data
+                        de
+                        modificação, tipo, etc.
+                    <li>1.2. Capturas das informações dos processos do sistema, como PID, nome do executável, consumo de
+                        processamento,
+                        consumo de memória.</li>
+                </ul>
+            </li>
+            <li>Informações necessárias do TP 6:
+                <ul>
+                    <li>3.1. Informações sobre as máquinas pertencentes à sub-rede do IP específico.</li>
+                    <li>3.2. Informações sobre as portas dos diferentes IPs obtidos nessa sub-rede.</li>
+                </ul>
+            </li>
+            <li>Informações necessárias do TP 7:
+                <ul>
+                    <li>4.1. Ao menos 3 informações de interfaces de redes (exemplos: interfaces disponíveis, IP,
+                        gateway,
+                        máscara
+                        de
+                        subrede, etc.).</li>
+                </ul>
+            </li>
+            <li>O TP8 corresponde à criação do cliente e servidor.</li>
+        </ol>
+    </section>
+</div>
+</div>
+<script src="{% static 'js/jquery.min.js' %}"></script>
+<script src="{% static 'js/sumario.js' %}"></script>
+
+{% endblock %}

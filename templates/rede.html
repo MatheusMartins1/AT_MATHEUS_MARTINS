@@ -1,0 +1,55 @@
+{% extends "base.html" %}
+{% load static %}
+{% block content %}
+
+<div class="row rede">
+    <h1>Informações de redes</h1>
+</div>
+
+
+{% if rede %}
+<h3>IPs ativos na rede:</h3>
+<div class="row">
+    <ul>
+        {% for id, rede in rede.items %}
+        <li>{{rede.ip}}</li>
+        {% endfor %}
+    </ul>
+</div>
+
+<h3>Portas abertas em cada IP:</h3>
+<div class="row">
+    <table class="table table-striped table-hover">
+        <thead>
+            <tr>
+                <th scope="col">IP</th>
+                <!-- <th scope="col">hostname</th> -->
+                <th scope="col">porta</th>
+                <th scope="col">estado</th>
+                <th scope="col">protocolo</th>
+                <th scope="col">product</th>
+
+            </tr>
+        </thead>
+        <tbody>
+            {% for id, rede in rede.items %}
+            {% for port, porta in rede.portas.items %}
+            <tr>
+                <th scope="row">{{ rede.ip }}</th>
+                <!-- <td>{{ rede.hostname }}</td> -->
+                <td>{{ porta.porta }}</td>
+                <td>{{ porta.estado }}</td>
+                <td>{{ porta.protocolo }}</td>
+                <td>{{ porta.product }}</td>
+            </tr>
+            {% endfor %}
+            {% endfor %}
+        </tbody>
+    </table>
+</div>
+
+{% else %}
+<p>Não foi possível localizar informações de redes.</p>
+{% endif %}
+
+{% endblock %}
