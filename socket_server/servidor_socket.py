@@ -32,7 +32,7 @@ async def exec_server():
             elif msg == "processos":
                 resposta = retorna_processos()
             elif msg == "rede":
-                 resposta = retorna_info_hosts()
+                resposta = retorna_info_hosts()
             elif "arquivos" in msg:
                 caminho = msg.split(";")[1]
                 print(f"\nCaminho:{caminho}")
@@ -55,6 +55,7 @@ async def exec_server():
 
 loop = asyncio.get_event_loop()
 
+loop.create_task(retorna_interfaces_redes_async())
 loop.create_task(exec_info_redes_async())
 loop.run_until_complete(exec_server())
 

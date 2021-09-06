@@ -8,7 +8,7 @@
 
 
 {% if rede %}
-<h3>IPs ativos na rede:</h3>
+<h3>IPs ativos na rede local:</h3>
 <div class="row">
     <ul>
         {% for id, rede in rede.items %}
@@ -43,6 +43,59 @@
                 <td>{{ porta.product }}</td>
             </tr>
             {% endfor %}
+            {% endfor %}
+        </tbody>
+    </table>
+</div>
+
+<h3>Interfaces:</h3>
+<div class="row">
+    <table class="table table-striped table-hover">
+        <thead>
+            <tr>
+                <th scope="col">rede</th>
+                <th scope="col">familia</th>
+                <th scope="col">address</th>
+                <th scope="col">netmask</th>
+                <th scope="col">broadcast</th>
+                <th scope="col">ptp</th>
+                <th scope="col">ativa</th>
+                <th scope="col">duplex</th>
+                <th scope="col">speed</th>
+                <th scope="col">mtu</th>
+                <th scope="col">bytes_sent</th>
+                <th scope="col">bytes_recv</th>
+                <th scope="col">packets_sent</th>
+                <th scope="col">packets_recv</th>
+                <th scope="col">errin</th>
+                <th scope="col">errout</th>
+                <th scope="col">dropin</th>
+                <th scope="col">dropout</th>
+
+            </tr>
+        </thead>
+        <tbody>
+            {% for id, metrica in interfaces.items %}
+            <tr>
+                <td>{{ metrica.rede }}</td>
+                <td>{{ metrica.familia }}</td>
+                <td>{{ metrica.address }}</td>
+                <td>{{ metrica.netmask }}</td>
+                <td>{{ metrica.broadcast }}</td>
+                <td>{{ metrica.ptp }}</td>
+                <td>{{ metrica.ativa }}</td>
+                <td>{{ metrica.duplex }}</td>
+                <td>{{ metrica.speed }}</td>
+                <td>{{ metrica.mtu }}</td>
+                <td>{{ metrica.bytes_sent }}</td>
+                <td>{{ metrica.bytes_recv }}</td>
+                <td>{{ metrica.packets_sent }}</td>
+                <td>{{ metrica.packets_recv }}</td>
+                <td>{{ metrica.errin }}</td>
+                <td>{{ metrica.errout }}</td>
+                <td>{{ metrica.dropin }}</td>
+                <td>{{ metrica.dropout }}</td>
+            </tr>
             {% endfor %}
         </tbody>
     </table>

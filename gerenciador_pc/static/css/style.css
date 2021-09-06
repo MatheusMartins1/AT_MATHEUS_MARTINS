@@ -87,6 +87,13 @@ ul.modulos>li>span {
     display : none;
 }
 
+input#inputH{
+    display: none;
+}
+
+.charts{
+    width: 50%;
+}
 /* 
 Copyright (c) 2021 by elcanziba (https://codepen.io/elcanziba/pen/evBZGB)
 
@@ -280,4 +287,14 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
 
 .dashboard-cards .card-actions .btn:hover {
     color: #f36525;
+}
+
+@media only screen and (max-width: 600px) {
+    .row {
+        display: grid !important;
+    }
+
+    .dashboard-cards .card {
+        width: 100%  !important;
+    }
 }
