@@ -20,5 +20,3 @@ def main():
 
 if __name__ == '__main__':
     main()
-    # subprocess.Popen("cliente_socket.py",cwd=r"\gerenciador_pc\socket")
-    

@@ -52,8 +52,8 @@ def verifica_hosts(sub_rede):
 def scan_host(host, id):
 
     try:
-        if str(host) == '192.168.0.112':
-        # if True:
+        # if str(host) == '192.168.0.112':
+        if True:
             nm = nmap.PortScanner()
             nm.scan(host)
 

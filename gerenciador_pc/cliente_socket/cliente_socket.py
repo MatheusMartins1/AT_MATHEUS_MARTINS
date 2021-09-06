@@ -26,7 +26,3 @@ def requisita_servidor_socket(msg):
     s.close()
     
     return resposta
-
-
-# CD "D:\Users\Matheus\Documents\workspacePython\AT_MATHEUS_MARTINS\gerenciador_pc\socket"
-# python cliente_socket.py

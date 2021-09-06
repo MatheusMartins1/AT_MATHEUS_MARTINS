@@ -2,36 +2,120 @@
 {% load static %}
 {% block content %}
 
-    <div class="row info_pc dashboard-cards">
-        <div class="card col-sm-4 IP">
-            <div class="card-body">
-                <h5 class="card-title">IP</h5>
-                <p class="card-text">{{ IP }}</p>
-            </div>
+<div class="row info_pc dashboard-cards">
+    <div class="card col-sm-4 IP">
+        <div class="card-body">
+            <h5 class="card-title">IP</h5>
+            <p class="card-text">{{ IP }}</p>
         </div>
-        <div class="card col-sm-4 processador" id="processador">
-            <div class="card-body">
-                <h5 class="card-title">Processador</h5>
-                <p class="card-text">{{ CPU.Processador }}</p>
-            </div>
-            <div class='card-flap flap1'>
-                <div class='card-description'>
-                    <ul class='task-list'>
-                        {% for key,value in CPU.items %}
-                            <li class="{{ key }}">
-                                {{ key }} - {{ value }}
-                            </li>
-                        {% endfor %}
-                    </ul>
-                </div>
-            </div>
+    </div>
+    <div class="card col-sm-4 processador" id="processador">
+        <div class="card-body">
+            <h5 class="card-title">Processador</h5>
+            <p class="card-text">{{ CPU.Processador }}</p>
         </div>
-        <div class="card col-sm-4 IP">
-            <div class="card-body">
-                <h5 class="card-title">Memória</h5>
-                <p class="card-text">Em uso: {{ memoria.0 }}% | Total: {{ memoria.1 }}</p>
+        <div class='card-flap flap1'>
+            <div class='card-description'>
+                <ul class='task-list'>
+                    {% for key,value in CPU.items %}
+                    <li class="{{ key }}">
+                        {{ key }} - {{ value }}
+                    </li>
+                    {% endfor %}
+                </ul>
             </div>
         </div>
     </div>
+    <div class="card col-sm-4 IP">
+        <div class="card-body">
+            <h5 class="card-title">Memória</h5>
+            <p class="card-text">Em uso: {{ memoria.0 }}% | Total: {{ memoria.1 }}</p>
+        </div>
+    </div>
+</div>
+
+<div class="row" id="charts">
+    <script src="https://d3js.org/d3.v6.js"></script>
+    <script src="{% static 'js/jquery.min.js' %}"></script>
+    <div class="charts" id="disco">
+        <h5>Espaço em disco:</h5>
+        Total - {{disco.Total}} | Em uso - {{disco.uso}} | Livre - {{disco.Livre}}
+        <div id="disco_dataviz"></div>
+
+        <script>
+            // set the dimensions and margins of the graph
+            const width = 450,
+                height = 450,
+                margin = 40;
+
+            // The radius of the pieplot is half the width or half the height (smallest one). I subtract a bit of margin.
+            const radius = Math.min(width, height) / 2 - margin
+
+            // append the svg object to the div called 'disco_dataviz'
+            const svg = d3.select("#disco_dataviz")
+                .append("svg")
+                .attr("width", width)
+                .attr("height", height)
+                .append("g")
+                .attr("transform", `translate(${width / 2}, ${height / 2})`);
+
+            // Create dummy data
+
+            var percent_uso = String({{ disco.percent_uso }});
+            var percent_livre = String({{ disco.percent_livre }});
+            percent_uso = percent_uso.replace(",", ".");
+            percent_livre = percent_livre.replace(",", ".");
+
+            const data = { "Livre": percent_livre, "Em uso": percent_uso }
+
+
+            // set the color scale
+            const color = d3.scaleOrdinal().range(d3.schemeSet2);
+
+            // Compute the position of each group on the pie:
+            const pie = d3.pie().value(function (d) { return d[1] })
+            const data_ready = pie(Object.entries(data))
+
+            // Now I know that group A goes from 0 degrees to x degrees and so on.
+
+            // shape helper to build arcs:
+            const arcGenerator = d3.arc().innerRadius(0).outerRadius(radius)
+
+            // Build the pie chart: Basically, each part of the pie is a path that we build using the arc function.
+            svg.selectAll('mySlices')
+                .data(data_ready)
+                .join('path')
+                .attr('d', arcGenerator)
+                .attr('fill', function (d) { return (color(d.data[0])) })
+                .attr("stroke", "black")
+                .style("stroke-width", "2px")
+                .style("opacity", 0.7)
+
+            // Now add the annotation. Use the centroid method to get the best coordinates
+            svg.selectAll('mySlices')
+                .data(data_ready)
+                .join('text')
+                .text(function (d) { return d.data[0] + " " + String(d.data[1]) + "%" })
+                .attr("transform", function (d) { return `translate(${arcGenerator.centroid(d)})` })
+                .style("text-anchor", "middle")
+                .style("font-size", 17)
+        </script>
+    </div>
+
+    <div class="charts" id="cpu_core">
+        <h5>Uso da CPU por core:</h5>
+        <ul>
+            <li class="nucleoCpu" id="1" value="{{processador.1}}">Núcleo 1 - {{processador.1}}</li>
+            <li class="nucleoCpu" id="2" value="{{processador.2}}">Núcleo 2 - {{processador.2}}</li>
+            <li class="nucleoCpu" id="3" value="{{processador.3}}">Núcleo 3 - {{processador.3}}</li>
+            <li class="nucleoCpu" id="4" value="{{processador.4}}">Núcleo 4 - {{processador.4}}</li>
+            <li class="nucleoCpu" id="5" value="{{processador.5}}">Núcleo 5 - {{processador.5}}</li>
+            <li class="nucleoCpu" id="6" value="{{processador.6}}">Núcleo 6 - {{processador.6}}</li>
+        </ul>
+    </div>
+
+</div>
+
+
 
 {% endblock %}

@@ -1,6 +1,6 @@
 import socket
 import pickle
-from gerenciador_pc.CONSTANTES import HOST, PORTA
+from CONSTANTES import HOST, PORTA
 from pc import PC
 from processos import retorna_processos
 from arquivos import retorna_arquivos
@@ -15,9 +15,7 @@ async def exec_server():
 
     while True:
         try:
-
             print("Servidor de nome", HOST, "esperando conexão na porta", PORTA)
-
             resposta = False
             (socket_cliente, addr) = socket_servidor.accept()
             print("\nConectado a:", socket_cliente, str(addr))
@@ -35,7 +33,6 @@ async def exec_server():
                 resposta = retorna_info_hosts()
             elif "arquivos" in msg:
                 caminho = msg.split(";")[1]
-                print(f"\nCaminho:{caminho}")
                 resposta = retorna_arquivos(caminho)
 
             if resposta:

@@ -387,24 +387,67 @@
                 ao cliente.
             </li>
         </ol>
+
+        <p class="resp">
+            Devido a migração para o Django, esta etapa foi realizada antes do início do TP6, mas a medida que a
+            necessidade foi sugirondo, alterações foram realizadas à ela, como a inclusão de funções assíncronas e
+            solicitações dinâmicas baseada na página carregada no front-end.
+        </p>
+        <p class="resp">
+            Uma das modificações realizadas no código foi o aumento da quantidade de bytes transmitida via socket para
+            4096 devido a erros de truncamento de dados em dicionários muito grandes. Mesmo com esse aumento na
+            quantidade de bytes não foi suciciente para tranmitir o dicionário com dados de todos os processos do
+            computador. por isso foi usado uma estratégia de limitar a quantidade de processos respondidos via socket
+            aos 30 primeiros ordenados por consumo de memnória.
+        </p>
+        <p class="resp">
+            Outra adaptação realizada neste módulo foi a inclusão da classe PC de dentro do servidor socket atravpes do
+            comando sys.modules['pc'] para que o pickle conseguisse desempacotar a mensagem transmitida corretamente.
+            Sem este comando não era possível interpretar a classe PC no cliente.
+        </p>
+        <p class="resp">
+            Foi criada uma função que padronizasse a execução do cliente socket, assim o arquivo views.py que gerencia
+            as requisições chama a função do cliente socket passando qual módulo deseja resgatar. Só então o cliente
+            começa a solicitação de transferência, após finalizado a função encerra a conexão e retorna para o views.py
+            a resposta do servidor.
+        </p>
+        <p class="resp">
+            Código do cliente socket que é executado na main do Django:
+            <img src="{% static 'images/TP8_CLIENTE_SOCKET.jpg' %}" alt="alt text">
+        </p>
+
+
+        <img src="{% static 'images/TP8_SERVIDOR_SOCKET_1.jpg' %}" alt="alt text">
+        <img src="{% static 'images/TP8_SERVIDOR_SOCKET_2.jpg' %}" alt="alt text">
+
     </section>
 
     <section class="TP"> <h3 class="tituloTP" id="tp9">TESTE DE PERFORMANCE - TP9</h3>
+
         <ol>
+            <li>Informações do Computador
+                <img src="{% static 'images/TP9_PC.jpg' %}" alt="alt text">
+                <img src="{% static 'images/TP9_PROCESSADOR.jpg' %}" alt="alt text">
+            </li>
             <li>Informações necessárias do TP 4:
                 <ul>
                     <li> Capturas das informações dos diretórios, como nome, tamanho, localização, data de criação, data
                         de
-                        modificação, tipo, etc.
+                        modificação, tipo, etc.</li>
+                    <img src="{% static 'images/TP9_ARQUIVOS.jpg' %}" alt="alt text">
+                    <img src="{% static 'images/TP5_ESCALONADO.jpg' %}" alt="alt text">
                     <li>1.2. Capturas das informações dos processos do sistema, como PID, nome do executável, consumo de
                         processamento,
                         consumo de memória.</li>
+                    <img src="{% static 'images/TP9_PROCESSOS.jpg' %}" alt="alt text">
                 </ul>
             </li>
             <li>Informações necessárias do TP 6:
                 <ul>
                     <li>3.1. Informações sobre as máquinas pertencentes à sub-rede do IP específico.</li>
+                    <img src="{% static 'images/TP9_REDES.jpg' %}" alt="alt text">
                     <li>3.2. Informações sobre as portas dos diferentes IPs obtidos nessa sub-rede.</li>
+                    <img src="{% static 'images/TP9_REDES2.jpg' %}" alt="alt text">
                 </ul>
             </li>
             <li>Informações necessárias do TP 7:
@@ -414,9 +457,17 @@
                         máscara
                         de
                         subrede, etc.).</li>
+                    <img src="{% static 'images/TP9_REDES3.jpg' %}" alt="alt text">
                 </ul>
             </li>
             <li>O TP8 corresponde à criação do cliente e servidor.</li>
+            <ul>
+                <li>Cliente:</li>
+                <img src="{% static 'images/TP8_CLIENTE_SOCKET.jpg' %}" alt="alt text">
+                <li>Servidor:</li>
+                <img src="{% static 'images/TP8_SERVIDOR_SOCKET_1.jpg' %}" alt="alt text">
+                <img src="{% static 'images/TP8_SERVIDOR_SOCKET_2.jpg' %}" alt="alt text">
+            </ul>
         </ol>
     </section>
 </div>
